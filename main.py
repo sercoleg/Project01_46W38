@@ -10,16 +10,28 @@ def wind_turbine_power_output(
 
     Parameters
     ----------
-    wind_speed              : float     # Wind speed [m/s]
-    rated_power             : float     # Rated power [MW] / 15 MW by default
-    cut_in_wind_speed       : float     # Cut-in wind speed [m/s] - 3 m/s by default
-    rated_wind_speed        : float     # Rated wind speed [m/s] - 11 m/s by default
-    cut_out_wind_speed      : float     # Cut-out wind speed [m/s] - 25 m/s by default
-    interpolation_method    : str       # 'linear' or 'cubic' - 'linear' by default
+    wind_speed : float
+        Wind speed [m/s]
+
+    rated_power : float, default = 15
+        Rated power [MW]
+
+    cut_in_wind_speed : float, default = 3
+        Cut-in wind speed [m/s]
+
+    rated_wind_speed : float, default = 11
+        Rated wind speed [m/s]
+
+    cut_out_wind_speed : float, default = 25
+        Cut-out wind speed [m/s]
+
+    interpolation_method : str, default = 'linear'
+        'linear' or 'cubic'
 
     Returns
     -------
-    Power output : float        # [kW]
+    power_output : float
+        Power output [MW]
     """
 
     # Defining weighting function g according to interpolation method selected
@@ -27,7 +39,7 @@ def wind_turbine_power_output(
         g = (wind_speed - cut_in_wind_speed) / (rated_wind_speed - cut_in_wind_speed)
     elif interpolation_method == 'cubic':
         g = (wind_speed ** 3) / (rated_wind_speed ** 3)
-    # If interpolation method is not 'linear' nor 'cubic', then, error should be handed
+    # If interpolation method is not 'linear' nor 'cubic', then, raise an error
     else:
         raise ValueError("interpolation_method should be 'linear' or 'cubic'")
 
