@@ -57,10 +57,11 @@ def wind_turbine_power_output(
     return power_output
 
 if __name__ == '__main__':
-    plinear = []
-    pcubic = []
+    print('Wind speed [m/s] | Power output linear [MW] | Power output cubic [MW]')
+    print('---------------------------------------------------------------------')
+    # Generates a power curve for each interpolation method
     for v in range(31):
-        plinear.append(wind_turbine_power_output(wind_speed=v))
-        pcubic.append(wind_turbine_power_output(wind_speed=v,interpolation_method='cubic'))
-    print(plinear)
-    print(pcubic)
+        plinear = wind_turbine_power_output(wind_speed=v)
+        pcubic = wind_turbine_power_output(wind_speed=v,interpolation_method='cubic')
+        # Print power curve values
+        print(f'{v:10d}       |          {plinear:6.2f}          |{pcubic:14.2f}         |')
