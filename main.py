@@ -55,3 +55,12 @@ def wind_turbine_power_output(
         power_output = rated_power
 
     return power_output
+
+if __name__ == '__main__':
+    plinear = []
+    pcubic = []
+    for v in range(31):
+        plinear.append(wind_turbine_power_output(wind_speed=v))
+        pcubic.append(wind_turbine_power_output(wind_speed=v,interpolation_method='cubic'))
+    print(plinear)
+    print(pcubic)
