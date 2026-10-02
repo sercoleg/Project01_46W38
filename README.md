@@ -1,5 +1,4 @@
 # Project01_46W38
 First of three graded projects for the course : Practical Programming for Wind Energy. Public wind turbine power output python function from input wind speed.
 
-Author : Sergio Correa
-DTU student email: s243524@dtu.dk
+Author : Sergio Correa | DTU student email: s243524@dtu.dk
